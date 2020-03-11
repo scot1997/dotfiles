@@ -1,0 +1,2 @@
+rofi.show-icons: True
+rofi.theme: /usr/share/rofi/themes/android_notification.rasi
