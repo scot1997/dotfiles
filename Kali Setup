@@ -1,0 +1,15 @@
+.bin
+.bashrc
+.config/rofi
+bat
+tldr
+alacarte (Mainmenu)
+python-pip
+rofi
+wine
+pip install bat
+fd-find
+fzf
+Open terminal as root = pkexec thunar %f
+HTTPie
+gitzip (Download specific files using doubleclick)
