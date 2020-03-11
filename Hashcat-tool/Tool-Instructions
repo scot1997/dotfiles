@@ -1,0 +1,3 @@
+Download it then run source hashcatComplete.bash in your terminal
+
+then do hashcat -m <tab>

@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+#
+#   Use dmenu to pick a reverse shell
+#
+#   Requirements:
+#     dmenu, xsel
+#
+
+SHELLS="$(dirname $0)/shells.txt"
+
+function notify() {
+	if [ "$(command -v notify-send)" ]; then
+		notify-send "$1" "$2"
+	fi
+}
+
+function getIP(){
+	ip route |
+		grep -oe 'src [^ ]* ' | # Get in the form 'src ipaddress'
+		awk '{print $2}' | # Get the ip
+		sort -u | # Get the unique ones
+		rofi -dmenu -i -p "IP Address"
+}
+
+function getPort() {
+	rofi -dmenu -p "Port"
+}
+
+function getReverseShell() {
+	ip="$1"
+	port="$2"
+	cat "$SHELLS" |
+		sed "s/\[IPADDR\]/$ip/g" |
+		sed "s/\[PORT\]/$port/g" |
+		rofi -dmenu -i -p "Reverse Shell" |
+		cut -d'|' -f2-
+}
+
+function getRows(){
+	stty -a | head -n 1 | cut -d ';' -f 2 | cut -d ' ' -f 3
+}
+
+function getCols(){
+	stty -a | head -n 1 | cut -d ';' -f 3 | cut -d ' ' -f 3
+}
+
+function display() {
+	ip=$(getIP)
+	port=$(getPort)
+	reverseShell=$(getReverseShell $ip $port)
+
+	echo -n "$reverseShell" | /usr/bin/xclip -i -selection clipboard
+	echo -n "$reverseShell" | /usr/bin/xclip -i -selection primary
+
+	nc -lvnp $port
+	#Put the tty back to normal
+	# This is useful if I got a nice shell before
+	stty -raw echo
+}
+
+
+# display displays :)
+display
