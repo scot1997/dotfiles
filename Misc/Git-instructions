@@ -1,0 +1,29 @@
+git init
+git add <FILENAME>
+git commit -m "NAME"
+git remote add origin https://github.com/scot1997/dotfiles.git
+git push -u origin master
+
+Push an existing repository from command line
+git remote add origin https://github.com/scot1997/dotfiles.git
+git push -u origin master
+
+
+1) git init
+2) git add .
+3) git commit -m "Add all my files"
+4) git remote add origin https://github.com/yourusername/your-repo-name.git
+5) git pull origin master
+6) git push origin master
+
+--------------------------------------github instructions-------------------------------
+
+echo "# dotfiles" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/scot1997/dotfiles.git
+git push -u origin master
+
+git remote add origin https://github.com/scot1997/dotfiles.git
+git push -u origin master
