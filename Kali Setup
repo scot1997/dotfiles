@@ -13,5 +13,6 @@ fzf
 Open terminal as root = pkexec thunar %f
 HTTPie
 gitzip (Download specific files using doubleclick)
+###Rofi-Reverse-Shells###
 xsel
 dmenu
