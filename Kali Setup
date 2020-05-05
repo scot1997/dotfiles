@@ -13,4 +13,5 @@ fzf
 Open terminal as root = pkexec thunar %f
 HTTPie
 gitzip (Download specific files using doubleclick)
-
+xsel
+dmenu
