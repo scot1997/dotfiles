@@ -104,6 +104,7 @@ source $ZSH/oh-my-zsh.sh
 
 #Rofi reverse shell
 alias getshell="./Documents/Rofi/rofi-reverse-shells"
+
 #Searchsploit ss
 alias ss="tail -n +2 /usr/share/exploitdb/files_exploits.csv | awk -F ',' '{print \$2 \"\t\" \$3 \"\t(\" \$1 \")\"}' | fzf --preview-window=up --preview='echo {} | cut -d\"	\" -f1 | xargs echo \"/usr/share/exploitdb/\" | tr -d \" \" | xargs bat --color=always' | cut -d'	' -f3 | tr -d \"()\" | xargs searchsploit -m"
 
